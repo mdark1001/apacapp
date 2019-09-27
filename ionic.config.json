@@ -1,0 +1,9 @@
+{
+  "name": "app_encuesta_temp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "c0531aee",
+  "id": "c0531aee"
+}
