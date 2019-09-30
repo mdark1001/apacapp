@@ -40,6 +40,7 @@ export class HorarioProvider extends BASECONFIG {
       this.http.post(url, form, options).subscribe(data => {
         resolve(data);
       }, err => {
+        loadcontent.dismiss();
         reject(err)
       }, () => {
         setTimeout(() => {
@@ -49,4 +50,36 @@ export class HorarioProvider extends BASECONFIG {
     });
   }
 
+  pasar_lista_session(params) {
+    console.log(params);
+    let loadcontent = this.loading.create({
+      content: 'Por favor espere....'
+    });
+
+    loadcontent.present();
+    var form = new FormData();
+    for (let item in params) {
+      form.append(item, params[item]);
+    }
+    let options = {
+      headers: {
+        "accept": "application/json"
+      }
+    };
+
+    let url = `${this.BASEURL}horario_pase_lista`;
+    return new Promise((resolve, reject) => {
+      this.http.post(url, form, options).subscribe(data => {
+        resolve(data);
+      }, err => {
+        loadcontent.dismiss();
+        reject(err)
+
+      }, () => {
+        setTimeout(() => {
+          loadcontent.dismiss();
+        }, 100);
+      });
+    });
+  }
 }

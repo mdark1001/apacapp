@@ -23,6 +23,7 @@ export class SessionesPage {
   user_id: number;
   token: string;
   estatus_session: boolean = true;
+  pase_lista: boolean = true;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -56,7 +57,8 @@ export class SessionesPage {
       fecha_inicio: fecha_formateada,
       estatus: this.estatus_session ? 'ocupado' : '',
       usuario_id: this.user_id,
-      token: this.token
+      token: this.token,
+      pase_lista: this.pase_lista ? 'todo' : ''
     }).then((data: any) => {
       console.log(data);
       if (data['state'] === 200) {
@@ -78,12 +80,13 @@ export class SessionesPage {
     }).present();
   }
 
-  pasarLista(servicio_id, listadoAsistentes) {
-    console.log(servicio_id);
+  pasarLista(servicio, listadoAsistentes) {
+    console.log(servicio);
     console.log(listadoAsistentes);
-    this.navCtrl.push(PaseListaPage, {'listadoAsistentes': listadoAsistentes})
+    this.navCtrl.push(PaseListaPage, {'servicio': servicio, 'user_id': this.user_id, 'token': this.token})
 
   }
+
 
 // }
 }
