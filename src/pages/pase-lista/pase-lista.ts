@@ -16,7 +16,7 @@ import {HorarioProvider} from "../../providers/horario/horario";
   templateUrl: 'pase-lista.html',
 })
 export class PaseListaPage {
-  servicio: Array<any>;
+  servicio: any;
   marcar_todos: boolean = false;
   user_id: number;
   token: string;
@@ -39,7 +39,7 @@ export class PaseListaPage {
   }
 
   pasar_lista() {
-    console.log(this.servicio.id);
+
 
     let formulario = {
       sesion_id: this.servicio.id,
@@ -48,10 +48,12 @@ export class PaseListaPage {
       pase_lista: this.servicio.asisiatencias.beneficiarios.filter(b => b.asistencia == true).map(b => b.id).join(',')
     }
     console.log(formulario);
+
     this.horarioService.pasar_lista_session(formulario).then(data => {
       console.log(data);
       if (data['state'] == 200) {
         this.showMessage('Se actualizó el pase de lista').present();
+        this.servicio.paso_asistencia = true
         this.navCtrl.pop()
       } else {
         this.showMessage('Error al procesar su solicitud...').present()

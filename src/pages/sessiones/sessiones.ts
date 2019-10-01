@@ -4,6 +4,7 @@ import {Storage} from '@ionic/storage';
 import {HorarioProvider} from "../../providers/horario/horario";
 import {LoginPage} from "../login/login";
 import {PaseListaPage} from "../pase-lista/pase-lista";
+import {ResponseApi} from "../../providers/ResponseApi";
 
 /**
  * Generated class for the SessionesPage page.
@@ -59,7 +60,7 @@ export class SessionesPage {
       usuario_id: this.user_id,
       token: this.token,
       pase_lista: this.pase_lista ? 'todo' : ''
-    }).then((data: any) => {
+    }).then((data: ResponseApi) => {
       console.log(data);
       if (data['state'] === 200) {
         this.mis_servicios = data.response.sessiones
