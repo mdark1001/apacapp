@@ -7,6 +7,7 @@ import {SessionesPage} from "../pages/sessiones/sessiones";
 import {LoginPage} from "../pages/login/login";
 import {Storage} from '@ionic/storage';
 import {HomePage} from "../pages/home/home";
+import {IndicadoresPage} from "../pages/indicadores/indicadores";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,10 +27,11 @@ export class MyApp {
     this.pages = [
       {title: 'Inicio', component: HomePage},
       {title: 'Asistencias', component: SessionesPage},
-      {title: 'Evaluacion', component: EvaluacionPage}
+      {title: 'Evaluacion', component: EvaluacionPage},
+      {title: 'Indicadores', component: IndicadoresPage},
     ];
     this.storage.get('perfil').then((value) => {
-     // console.log(value);
+      // console.log(value);
       if (value == null) {
         this.menu.swipeEnable(false);
       } else {

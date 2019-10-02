@@ -1,5 +1,5 @@
 export interface ResponseApi {
-  state: number;
-  data: [];
-  response: string;
+  state: number,
+  data: {},
+  response:{};
 };

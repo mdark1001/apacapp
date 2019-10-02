@@ -16,6 +16,7 @@ import {HomePage} from "../pages/home/home";
 import { HorarioProvider } from '../providers/horario/horario';
 import { StorageLocalProvider } from '../providers/storage-local/storage-local';
 import {PaseListaPage} from "../pages/pase-lista/pase-lista";
+import {IndicadoresPage} from "../pages/indicadores/indicadores";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {PaseListaPage} from "../pages/pase-lista/pase-lista";
     SessionesPage,
     LoginPage,
     PaseListaPage,
+    IndicadoresPage,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import {PaseListaPage} from "../pages/pase-lista/pase-lista";
     EvaluacionPage,
     SessionesPage,
     LoginPage,
+    IndicadoresPage,
     HomePage,
     PaseListaPage,
   ],
