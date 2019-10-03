@@ -17,6 +17,7 @@ import { HorarioProvider } from '../providers/horario/horario';
 import { StorageLocalProvider } from '../providers/storage-local/storage-local';
 import {PaseListaPage} from "../pages/pase-lista/pase-lista";
 import {IndicadoresPage} from "../pages/indicadores/indicadores";
+import { IndicadoresProvider } from '../providers/indicadores/indicadores';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {IndicadoresPage} from "../pages/indicadores/indicadores";
     FormatosEncuestasProvider,
     ApiProvider,
     HorarioProvider,
-    StorageLocalProvider
+    StorageLocalProvider,
+    IndicadoresProvider
   ]
 })
 export class AppModule {
