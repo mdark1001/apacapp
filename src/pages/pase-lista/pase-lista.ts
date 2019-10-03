@@ -14,7 +14,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
   templateUrl: 'pase-lista.html',
 })
 export class PaseListaPage {
-  beneficiariosListado: Array<any>;
+  beneficiariosListado:Object;
   marcar_todos: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -28,7 +28,8 @@ export class PaseListaPage {
 
   marcarTodos() {
     console.log(this.marcar_todos);
-    this.beneficiariosListado.beneficiarios.forEach(b => {
+
+    this.beneficiariosListado['beneficiarios'].forEach(b => {
       b.asistencia = this.marcar_todos
     })
   }
