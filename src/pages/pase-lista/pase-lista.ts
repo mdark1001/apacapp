@@ -16,6 +16,7 @@ import {HorarioProvider} from "../../providers/horario/horario";
   templateUrl: 'pase-lista.html',
 })
 export class PaseListaPage {
+  beneficiariosListado:Object;
   servicio: any;
   marcar_todos: boolean = false;
   user_id: number;
@@ -32,8 +33,14 @@ export class PaseListaPage {
   }
 
   marcarTodos() {
+<<<<<<< HEAD
+    console.log(this.marcar_todos);
+
+    this.beneficiariosListado['beneficiarios'].forEach(b => {
+=======
 
     this.servicio.asisiatencias.beneficiarios.forEach(b => {
+>>>>>>> 8a02c48e51f7b44651c34db954dd243b9df88aca
       b.asistencia = this.marcar_todos
     })
   }

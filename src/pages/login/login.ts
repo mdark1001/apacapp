@@ -27,6 +27,7 @@ export class LoginPage {
   logueo: any;
   errorinput = false;
   errorEmail = false;
+  src_logo:string = "assets/imgs/books.png"
 
   constructor(public Toast: ToastController, public navCtrl: NavController,
               private storage: Storage, public _apiprovider: ApiProvider, public alert: AlertController,
