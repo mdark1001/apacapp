@@ -22,6 +22,11 @@
     <ion-label>Oucpado</ion-label>
     <ion-toggle [(ngModel)]="estatus_session"></ion-toggle>
   </ion-item>
+  <ion-item>
+    <ion-label>Sin pase de lista</ion-label>
+    <ion-toggle [(ngModel)]="pase_lista"></ion-toggle>
+  </ion-item>
+
 
   <ion-card *ngFor="let servicio of mis_servicios">
     <ion-item>
@@ -36,14 +41,24 @@
             }}
           </ion-badge>
         </ion-item>
+        <ion-item><b>Pase de lista: </b>
+          <ion-icon *ngIf="servicio.paso_asistencia" name="checkbox"></ion-icon>
+          <ion-icon *ngIf="!servicio.paso_asistencia" name="close"></ion-icon>
+        </ion-item>
       </ion-item-group>
     </ion-card-content>
 
     <ion-row>
       <ion-col *ngIf="servicio.asisiatencias.total>0">
-        <button ion-button icon-start clear small (click)="pasarLista(servicio.id,servicio.asisiatencias)">
+        <button ion-button icon-start clear small (click)="pasarLista(servicio,servicio.asisiatencias)">
           <ion-icon name="contacts"></ion-icon>
           <div>Asistencia</div>
+        </button>
+      </ion-col>
+      <ion-col *ngIf="servicio.asisiatencias.total==0">
+        <button ion-button icon-start clear small (click)="pasarLista(servicio,servicio.asisiatencias)">
+          <ion-icon name="calendar"></ion-icon>
+          <div>Asignar Beneficiario</div>
         </button>
       </ion-col>
       <ion-col align-self-center text-center>

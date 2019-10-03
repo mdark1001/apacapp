@@ -12,16 +12,19 @@
 
 <ion-content padding>
   <ion-row>
-
-    <ion-item>
-      <ion-label>Marcar todos</ion-label>
-      <ion-checkbox slot="start" [(ngModel)]="marcar_todos" (ionChange)="marcarTodos()"></ion-checkbox>
-    </ion-item>
+    <h1>{{ servicio.servicio_id[1] }}</h1>
   </ion-row>
+
   <ion-list>
-    <ion-item *ngFor="let beneficiario of beneficiariosListado.beneficiarios">
+    <ion-item>
+      <ion-label>Marcar todos...</ion-label>
+      <ion-toggle [(disabled)]="servicio.paso_asistencia"  [(ngModel)]="marcar_todos" (ionChange)="marcarTodos()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let beneficiario of servicio.asisiatencias.beneficiarios">
       <ion-label><h3> {{ beneficiario.nombre_completo }}</h3></ion-label>
-      <ion-checkbox [(ngModel)]="beneficiario.asistencia" slot="start"></ion-checkbox>
+      <ion-checkbox [(disabled)]="servicio.paso_asistencia" [(ngModel)]="beneficiario.asistencia" slot="start"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>
@@ -29,8 +32,8 @@
   <ion-toolbar>
 
     <ion-item>
-      <button ion-button color="success" outline default>Pasar lista</button>
-      <button ion-button color="danger" outline default >Regresar</button>
+      <button *ngIf="!servicio.paso_asistencia" ion-button color="success" (click)="pasar_lista()" outline default>Pasar lista</button>
+      <button ion-button color="danger"  (click)="regresar()" outline default>Regresar</button>
     </ion-item>
   </ion-toolbar>
 </ion-footer>

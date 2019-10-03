@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
 import {BASECONFIG} from "../BASECONFIG";
+import {ResponseApi} from "../ResponseApi";
 import {AlertController, LoadingController} from "ionic-angular";
 
 /*
@@ -40,7 +41,7 @@ export class ApiProvider extends BASECONFIG {
     let url = `${this.BASEURL}login`;
     console.log(url);
     return new Promise(resolve => {
-      this.http.post(url, form, options).subscribe(data => {
+      this.http.post(url, form, options).subscribe((data: ResponseApi) => {
         resolve(data);
       }, err => {
         loadcontent.dismiss();
